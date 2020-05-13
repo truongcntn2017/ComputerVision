@@ -4,16 +4,16 @@ g++ Convolution.cpp EdgeDetector.cpp CannyEdgeDetector.cpp EdgeDetectorOpenCV.cp
 
 # Execute with sobel
 
-./main.o lena.png 1 3 3
+./main.o image/lena.png 1 3 3
 
 # Execute with prewitt
 
-./main.o lena.png 2 3 3
+./main.o image/lena.png 2 3 3
 
 # Execute with laplace
 
-./main.o lena.png 3 3 3
+./main.o image/lena.png 3 3 3
 
 # Execute with canny
 
-./main.o lena.png 4 3 3
+./main.o image/lena.png 4 3 3
