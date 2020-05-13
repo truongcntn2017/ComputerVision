@@ -16,7 +16,6 @@ int EdgeDetector::DetectEdge(const Mat& sourceImage, Mat& destinationImage, int 
 	switch (method) {
 	case 1: {
 		float threshold = 25;
-
 		Mat sourceClone = sourceImage.clone(); // Get a clone of sourceImage
 		destinationImage = Mat(rows - kHeight + 1, cols - kWidth + 1, CV_32FC1, Scalar(0));
 		cout << "Sobel Method \n";
@@ -83,7 +82,6 @@ int EdgeDetector::DetectEdge(const Mat& sourceImage, Mat& destinationImage, int 
 	}
 		break;
 	case 3: {
-		try {
 			cout<<"Laplace"<<endl;
 			// Tạo mask
 			vector<float> laplace = { 1, 1, 1, 1, -8, 1, 1, 1, 1 };
@@ -133,11 +131,6 @@ int EdgeDetector::DetectEdge(const Mat& sourceImage, Mat& destinationImage, int 
 			}
 			//imshow("Destination Image with Laplace", destinationImage);
 			//waitKey(0);
-
-		}
-		catch (exception & e) {
-			return 1;
-		}
 		return 0;
 	}
 		break;
@@ -145,6 +138,7 @@ int EdgeDetector::DetectEdge(const Mat& sourceImage, Mat& destinationImage, int 
 		cout<<"Canny"<<endl;
 		CannyEdgeDetector cannyEdgeDetector;
 		cannyEdgeDetector.setter(10, 20);
+		
 		cout<<cannyEdgeDetector.Apply(sourceImage, destinationImage);
 		}
 		break;
