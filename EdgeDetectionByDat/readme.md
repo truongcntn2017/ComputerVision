@@ -9,7 +9,7 @@ g++ Blur.cpp Convolution.cpp CannyEdge.cpp Laplace.cpp SobelPrewitt.cpp 1712195_
 ./main.o lena.jpg -prewitt
 # Laplance
 
-./main.o lena.jpg -laplance
+./main.o lena.jpg -laplace
 # Canny
 
 ./main.o lena.jpg -canny
