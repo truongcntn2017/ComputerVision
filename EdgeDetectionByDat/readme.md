@@ -1,4 +1,4 @@
-#Compile
+<h6>Compile
 g++ Blur.cpp Convolution.cpp CannyEdge.cpp Laplance.cpp SobelPrewitt.cpp 1712195_1712329.cpp -o main.o `pkg-config --cflags --libs opencv4`
 #Sobel
 ./main.o lena.jpg -sobel
