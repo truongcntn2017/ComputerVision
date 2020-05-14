@@ -5,6 +5,7 @@
 #include <vector>
 using namespace std;
 using namespace cv;
+
 class EdgeDetector
 {
 public:

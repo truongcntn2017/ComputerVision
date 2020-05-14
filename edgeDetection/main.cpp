@@ -35,12 +35,17 @@ int main(int argv, char** argc)
     edgeDetector.DetectEdge(grayScale, edgeImage, kWidth, kHeight, method);
     edgeDetectorOpenCV.DetectEdge(grayScale, edgeImageOpenCV, kWidth, kHeight, method);
     
+    // Mat img8bit;
+    // edgeImage.convertTo(img8bit, CV_8UC3, 255.0);
+    // imwrite("google-canny.png", img8bit);
+    // imwrite("google-canny-opencv.png",edgeImageOpenCV);
+
     namedWindow("Grayscale image", WINDOW_AUTOSIZE); // (3)
     imshow("Grayscale image", grayScale); // (4)
     namedWindow("Edge detection from our coding", WINDOW_AUTOSIZE); // (5)
     imshow("Edge detection from our coding", edgeImage); // (6)
-    namedWindow("Edge detection from OpenCV", WINDOW_AUTOSIZE); // (5)
-    imshow("Edge detection from OpenCV", edgeImageOpenCV); // (6)
+    namedWindow("Edge detection from OpenCV", WINDOW_AUTOSIZE); // (7)
+    imshow("Edge detection from OpenCV", edgeImageOpenCV); // (8)
     waitKey(0);
 
     return 0;

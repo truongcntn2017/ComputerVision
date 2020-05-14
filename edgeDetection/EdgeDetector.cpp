@@ -34,6 +34,7 @@ int EdgeDetector::DetectEdge(const Mat& sourceImage, Mat& destinationImage, int 
 		ConvoX.DoConvolution(sourceClone, Gx);
 		ConvoY.DoConvolution(sourceClone, Gy);
 
+
 		for (int i = 0; i < destinationImage.rows; i++)
 			for (int j = 0; j < destinationImage.cols; j++) {
 				float fx = Gx.ptr<float>(i)[j];
@@ -43,6 +44,20 @@ int EdgeDetector::DetectEdge(const Mat& sourceImage, Mat& destinationImage, int 
 					destinationImage.ptr<float>(i)[j] = 1;
 				}
 			}
+
+		
+
+		for (int i = 0; i < destinationImage.rows; i++)
+			for (int j = 0; j < destinationImage.cols; j++) {
+				Gx.ptr<float>(i)[j] = (Gx.ptr<float>(i)[j] >= threshold) ? 1 : 0;
+				Gy.ptr<float>(i)[j] = (Gy.ptr<float>(i)[j] >= threshold) ? 1 : 0;
+			}
+
+		namedWindow("Gradient Ox from our coding", WINDOW_AUTOSIZE); // (5)
+    	imshow("Gradient Ox from our coding", Gx); // (6)
+    	namedWindow("Gradient Oy from our coding", WINDOW_AUTOSIZE); // (5)
+    	imshow("Gradient Oy from our coding", Gy); // (6)
+
 	}
 		break;
 	case 2: {
