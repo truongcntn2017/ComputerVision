@@ -1,4 +1,4 @@
-#include "Laplance.h"
+#include "Laplace.h"
 
 
 void getInput(int& gaussianSize, float& sigma)

@@ -56,7 +56,7 @@ int main(int argc, char** argv)
         getInput(gaussianSize, sigma, norm, highThreshold);
         detectByPrewitt(grayScale, new_image, gaussianSize, sigma, norm, highThreshold);
     }
-    else if (strcmp(argv[2], "-laplance") == 0)
+    else if (strcmp(argv[2], "-laplace") == 0)
     {
         getInput(gaussianSize, sigma);
         detectByLaplace(grayScale, new_image, gaussianSize, sigma);
