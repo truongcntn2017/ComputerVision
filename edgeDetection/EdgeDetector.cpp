@@ -16,7 +16,6 @@ int EdgeDetector::DetectEdge(const Mat& sourceImage, Mat& destinationImage, int 
 	switch (method) {
 	case 1: {
 		float threshold = 25;
-
 		Mat sourceClone = sourceImage.clone(); // Get a clone of sourceImage
 		destinationImage = Mat(rows - kHeight + 1, cols - kWidth + 1, CV_32FC1, Scalar(0));
 		cout << "Sobel Method \n";
@@ -35,6 +34,7 @@ int EdgeDetector::DetectEdge(const Mat& sourceImage, Mat& destinationImage, int 
 		ConvoX.DoConvolution(sourceClone, Gx);
 		ConvoY.DoConvolution(sourceClone, Gy);
 
+
 		for (int i = 0; i < destinationImage.rows; i++)
 			for (int j = 0; j < destinationImage.cols; j++) {
 				float fx = Gx.ptr<float>(i)[j];
@@ -44,6 +44,20 @@ int EdgeDetector::DetectEdge(const Mat& sourceImage, Mat& destinationImage, int 
 					destinationImage.ptr<float>(i)[j] = 1;
 				}
 			}
+
+		
+
+		for (int i = 0; i < destinationImage.rows; i++)
+			for (int j = 0; j < destinationImage.cols; j++) {
+				Gx.ptr<float>(i)[j] = (Gx.ptr<float>(i)[j] >= threshold) ? 1 : 0;
+				Gy.ptr<float>(i)[j] = (Gy.ptr<float>(i)[j] >= threshold) ? 1 : 0;
+			}
+
+		namedWindow("Gradient Ox from our coding", WINDOW_AUTOSIZE); // (5)
+    	imshow("Gradient Ox from our coding", Gx); // (6)
+    	namedWindow("Gradient Oy from our coding", WINDOW_AUTOSIZE); // (5)
+    	imshow("Gradient Oy from our coding", Gy); // (6)
+
 	}
 		break;
 	case 2: {
@@ -83,7 +97,6 @@ int EdgeDetector::DetectEdge(const Mat& sourceImage, Mat& destinationImage, int 
 	}
 		break;
 	case 3: {
-		try {
 			cout<<"Laplace"<<endl;
 			// Tạo mask
 			vector<float> laplace = { 1, 1, 1, 1, -8, 1, 1, 1, 1 };
@@ -133,11 +146,6 @@ int EdgeDetector::DetectEdge(const Mat& sourceImage, Mat& destinationImage, int 
 			}
 			//imshow("Destination Image with Laplace", destinationImage);
 			//waitKey(0);
-
-		}
-		catch (exception & e) {
-			return 1;
-		}
 		return 0;
 	}
 		break;
@@ -145,6 +153,7 @@ int EdgeDetector::DetectEdge(const Mat& sourceImage, Mat& destinationImage, int 
 		cout<<"Canny"<<endl;
 		CannyEdgeDetector cannyEdgeDetector;
 		cannyEdgeDetector.setter(10, 20);
+		
 		cout<<cannyEdgeDetector.Apply(sourceImage, destinationImage);
 		}
 		break;

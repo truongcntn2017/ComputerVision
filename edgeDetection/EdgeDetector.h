@@ -5,6 +5,7 @@
 #include <vector>
 using namespace std;
 using namespace cv;
+
 class EdgeDetector
 {
 public:
@@ -17,6 +18,7 @@ public:
 		1: Sobel
 		2: Prewitt
 		3: Laplace
+		4: Canny
 	Hàm trả về
 		0: nếu detect thành công
 		1: nếu detect thất bại (không đọc được ảnh input,...)
