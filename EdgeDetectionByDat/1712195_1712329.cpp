@@ -16,7 +16,7 @@ void help()
     cout << "how to use: <app> <image-path> <flag-method>" << endl;
     cout << "'-sobel' for edge detection using sobel method" << endl;
     cout << "'-prewitt' for edge detection using prewitt method" << endl;
-    cout << "'-laplance' for edge detection using laplance method" << endl;
+    cout << "'-laplace' for edge detection using laplace method" << endl;
     cout << "'-canny' for edge detection using canny method" << endl;
 }
 
@@ -40,7 +40,7 @@ int main(int argc, char** argv)
         return -1;
     }
     
-    Mat new_image; //creata a mat to contain image after processing
+    Mat new_image; //creat a mat to contain image after processing
 
     int gaussianSize, norm;
     float sigma, lowThreshold, highThreshold;
