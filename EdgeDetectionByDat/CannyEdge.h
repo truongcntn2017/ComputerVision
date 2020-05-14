@@ -22,6 +22,6 @@ bool doubleThreshold(Mat& img, float lowThreshold=10, float highThreshold=20);
 bool isNearStrong(Mat img, int x, int y, float strong);
 bool hysteresis(Mat& img, Mat angle, float weak, float strong=255);
 
-bool cannyEdgeDetection(const Mat& src, Mat& dest, float lowThreshold=10, float highThreshold=20, int gaussianSize=5, float sigma=3, int norm=1);
+bool detectByCanny(const Mat& src, Mat& dest, float lowThreshold=10, float highThreshold=20, int gaussianSize=5, float sigma=3, int norm=1);
 
 void getInput(float& lowThreshold, float& highThreshold, int& gaussianSize, float& sigma, int& norm);

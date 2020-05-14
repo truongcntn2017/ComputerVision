@@ -4,7 +4,7 @@
 #include <iostream>
 
 #include "SobelPrewitt.h"
-#include "Laplance.h"
+#include "Laplace.h"
 #include "CannyEdge.h"
 
 using namespace std;
@@ -59,12 +59,12 @@ int main(int argc, char** argv)
     else if (strcmp(argv[2], "-laplance") == 0)
     {
         getInput(gaussianSize, sigma);
-        detectByLaplance(grayScale, new_image, gaussianSize, sigma);
+        detectByLaplace(grayScale, new_image, gaussianSize, sigma);
     }
     else if (strcmp(argv[2], "-canny") == 0)
     {
         getInput(lowThreshold, highThreshold, gaussianSize, sigma, norm);
-        cannyEdgeDetection(grayScale, new_image, lowThreshold, highThreshold, gaussianSize, sigma, norm);
+        detectByCanny(grayScale, new_image, lowThreshold, highThreshold, gaussianSize, sigma, norm);
     }
     else
     {

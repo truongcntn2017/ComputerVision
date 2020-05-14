@@ -174,7 +174,7 @@ bool hysteresis(Mat& img, Mat angle, float weak, float strong)
 }
 
 
-bool cannyEdgeDetection(const Mat& src, Mat& dest, float lowThreshold, float highThreshold, int gaussianSize, float sigma, int norm)
+bool detectByCanny(const Mat& src, Mat& dest, float lowThreshold, float highThreshold, int gaussianSize, float sigma, int norm)
 {
     Mat img = src.clone();
     Mat angle;

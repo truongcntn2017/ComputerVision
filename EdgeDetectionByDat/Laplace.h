@@ -18,6 +18,6 @@ float thresholdCalculate(const Mat& img);
 bool isZeroCrossing(const Mat& img, int x, int y, float threshold);
 bool zeroCrossing(Mat& img, Mat& dest, float threshold);
 
-bool detectByLaplance(const Mat& src, Mat& dest, int gaussianSize=3, float sigma=1);
+bool detectByLaplace(const Mat& src, Mat& dest, int gaussianSize=3, float sigma=1);
 
 void getInput(int& gaussianSize, float& sigma);

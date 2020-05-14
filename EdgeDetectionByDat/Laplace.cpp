@@ -65,7 +65,7 @@ bool zeroCrossing(Mat& img, Mat& dest, float threshold)
     return true;
 }
 
-bool detectByLaplance(const Mat& src, Mat& dest, int kernelSize, float sigma)
+bool detectByLaplace(const Mat& src, Mat& dest, int kernelSize, float sigma)
 {
     Mat img = src.clone();
     Mat grad;
