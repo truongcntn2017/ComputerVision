@@ -16,7 +16,7 @@ void help()
     cout << "how to use: <app> <image-path> <flag-method>" << endl;
     cout << "'-sobel' for edge detection using sobel method" << endl;
     cout << "'-prewitt' for edge detection using prewitt method" << endl;
-    cout << "'-laplance' for edge detection using laplance method" << endl;
+    cout << "'-laplace' for edge detection using laplace method" << endl;
     cout << "'-canny' for edge detection using canny method" << endl;
 }
 
@@ -56,7 +56,7 @@ int main(int argc, char** argv)
         getInput(gaussianSize, sigma, norm, highThreshold);
         detectByPrewitt(grayScale, new_image, gaussianSize, sigma, norm, highThreshold);
     }
-    else if (strcmp(argv[2], "-laplance") == 0)
+    else if (strcmp(argv[2], "-laplace") == 0)
     {
         getInput(gaussianSize, sigma);
         detectByLaplace(grayScale, new_image, gaussianSize, sigma);
